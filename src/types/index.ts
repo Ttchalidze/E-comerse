@@ -3,12 +3,12 @@ export interface User {
   Name: string;
   Email: string;
   Password: string;
-  Role?: "user" | "admin" | "seller";
+  Role?: "seller";
   Address?: string;
   Phone?: string;
   CreatedAt: string;
 }
-export interface product {
+export interface Product {
   ProductId: string;
   Name: string;
   Price: number;

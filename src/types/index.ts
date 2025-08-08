@@ -3,7 +3,8 @@ export interface User {
   name: string;
   email: string;
   password: string;
-  role?: "seller" | "Admin";
+  //use is buyer and seller at the same time (similar to ebay)
+  role?: "seller" | "admin";
   address?: string;
   phone?: string;
   createdAt: string;

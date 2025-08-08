@@ -3,7 +3,7 @@ import { ddb } from "../db/dyClient";
 import { ScanCommand } from "@aws-sdk/client-dynamodb";
 import { requireUser } from "../middleware/requreUser";
 import { requireAdmin } from "../middleware/requireAdmin";
-import { DeleteCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb";
+import { DeleteCommand } from "@aws-sdk/lib-dynamodb";
 
 const router = express.Router();
 
@@ -12,13 +12,8 @@ router.get("/user", requireUser, requireAdmin, async (_req, res) => {
   res.json(result.Items);
 });
 
-router.get("/products", requireUser, requireAdmin, async (_req, res) => {
+router.get("/product", requireUser, requireAdmin, async (_req, res) => {
   const result = await ddb.send(new ScanCommand({ TableName: "Products" }));
-  res.json(result.Items);
-});
-
-router.get("/products", requireUser, requireAdmin, async (_req, res) => {
-  const result = await ddb.send(new ScanCommand({ TableName: "Product" }));
   res.json(result.Items);
 });
 
